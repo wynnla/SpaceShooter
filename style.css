@@ -1,0 +1,50 @@
+#space-field {
+  height: 70%;
+}
+#space-ship-area{
+  position: fixed;
+  bottom: 0;
+}
+#spaceship{
+  margin-top: 90%;
+  height: 10%;
+}
+.ui-page {
+      background:url('img/background.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+ }
+.asteroid {
+  width: 70px;
+  position: absolute;
+}
+
+.boom {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.pews {
+  position: absolute;
+  height: 40px;
+}
+
+#scoreboard {
+  opacity: .4;
+}
+#score{
+  background-color: white;
+  font-size: 30px;
+}
+.redbar{
+  position: absolute;
+  width: 100%;
+  height: 5px;
+}
+.mothership {
+  width: 100%;
+  position: absolute;
+}

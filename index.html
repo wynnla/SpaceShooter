@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title>Space Shooter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div>
+    <audio id="pewSound">
+      <source src="resources/pew.m4a" type="audio/mp4">
+    </audio>
+    <audio id="boomSound">
+      <source src="resources/boom.m4a" type="audio/mp4">
+    </audio>
+  </div>
+  <div id="main-screen" class="ui-grid ui-responsive" data-role="page">
+    <div data-role="content">
+      <div id="space-field">
+
+      </div>
+      <div id="space-ship-area">
+        <img src="img/spaceship.png" alt="spaceship" id="spaceship">
+      </div>
+    </div>
+  </div>
+  <div id="endgame" data-role="page">
+    <div data-role="header">
+      <h1>Game Over</h1>
+    </div>
+    <div data-role="content">
+      <div id="scoreboard">
+        <span id="score"></span>
+      </div>
+      <div id="playAgain">
+        <button type="button" name="button">Play Again</button>
+      </div>
+    </div>
+  </div>
+</body>
