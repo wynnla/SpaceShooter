@@ -12,9 +12,18 @@ var spawnedMother = false;
 $(document).ready(function() {
   screenheight = $(document).height();
   screenwidth = $(document).width();
-  initGame();
-  console.log('spaceship');
+  $('#playGame').click(function(event) {
+    /* Act on the event */
+    $.mobile.changePage('#main-screen');
+    var bg_music = document.getElementById('bgmusic');
+    bg_music.play();
+    initGame();
+  });
+  console.log(boomCount);
 });
+
+
+
 /*making the game awesome WIP*/
  function initKeyBoardTriggers() {
    $(document).keypress(function(event) {
@@ -42,7 +51,6 @@ function initGame(){
   $(document).on('swipeleft',function(event) {
     /* Act on the event */
     if(spaceship.offset().left > 16){
-      console.log(spaceship.offset());
       moveShip('left');
     }
   });
@@ -56,7 +64,8 @@ function initGame(){
     spawnAsteroids(asteroidCount++);
     if(boomCount > 15){
       spawnSpeed = 1000;
-    }else if (boomCount >= 30 && !spawnedMother) {
+      spawnAsteroids(asteroidCount++);
+    }else if (boomCount % 45 == 0) {
       spawnedMother = true;
       spawnSpeed = 50;
       spawnMotherShip();
@@ -135,7 +144,7 @@ function fireBullet(){
 
 
 
-  if(boomCount > 10){
+  if(boomCount > 5){
     bulletNum++;
     let g1 = bulletNum;
     var greenlaser1 = `<img src="img/greenlaser.png" alt="pews" class="pews" id="bullet${g1}">`;
@@ -192,7 +201,7 @@ function moveBulletUp(currBullet){
           var leftBoom = $(this).offset().left;
           $(this).remove();
           setBoom(topBoom, leftBoom);
-          boomCount += 30;
+          boomCount += 10;
         }
       }
     });
@@ -209,7 +218,7 @@ function checkCollision(bulletTip, bulletBody,asteroid){
   }
   return false;
 }
-var boomCount = 0;
+var boomCount = 1;
 var boomboom;
 function setBoom(topB, leftB){
   boomboom = document.getElementById("boomSound");
@@ -235,7 +244,7 @@ function endGame(){
   $('#score').html('Your Score is: '+boomCount );
   $('#playAgain').click(function(event) {
     /* Act on the event */
-    $.mobile.changePage('#main-screen');
+    $.mobile.changePage('#opening');
     location.reload(true);
   });
 }
@@ -255,7 +264,6 @@ function stopProcesses(){
 
 }
 function moveMultipleBullets(leftNode, middleNode, rightNode){
-  console.log(middleNode);
   setIDbullet = setInterval(function(){
     move3BulletUp(leftNode,middleNode,rightNode);
   }, 15);
@@ -274,12 +282,10 @@ function move3BulletUp(leftNode, middleNode, rightNode){
 */
 var mothershipHealth = 0;
 function spawnMotherShip(){
+  console.log("spawnedMother");
   let mothershipImage = `<image src="img/Mothership.png"
    alt="mothership" class="mothership" id="mothership">`;
    $('#space-field').append(mothershipImage);
    mothershipHealth = 30;
   let mothership = $('#mothership');
-
-
-
 }

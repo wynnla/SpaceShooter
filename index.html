@@ -13,12 +13,20 @@
 
 <body>
   <div>
+    <audio id="bgmusic" autoplay>
+      <source src="resources/rideofthevalkyries.mp3" type="audio/mpeg">
+    </audio>
     <audio id="pewSound">
       <source src="resources/pew.m4a" type="audio/mp4">
     </audio>
     <audio id="boomSound">
       <source src="resources/boom.m4a" type="audio/mp4">
     </audio>
+  </div>
+  <div id="opening" data-role="page">
+    <div data-role="content">
+      <button type="button" name="button" id="playGame">Play Game</button>
+    </div>
   </div>
   <div id="main-screen" class="ui-grid ui-responsive" data-role="page">
     <div data-role="content">
